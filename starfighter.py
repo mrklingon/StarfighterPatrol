@@ -45,21 +45,7 @@ def cycle(x):
         time.sleep(.1)
 
 
-def blinknum(num,color):
-    if num != 0:
-        for i in range(num):
-            cp.pixels.fill(color)
-            time.sleep(.25)
-            cp.pixels.fill(blank)
-            time.sleep(.10)
-    else:
-        for i in range(10):
-            cp.pixels[i] = color
-            cp.pixels.show()
-            time.sleep(.14)
-
-        cp.pixels.fill(blank)
-
+oscore = 0
 dir = 1
 global score
 score = 0
@@ -71,40 +57,57 @@ def fire(dir):
     if dir == 1:
         for i in ffire:
             cp.pixels[i] = gold
-            strip[i+14] = gold
+            strip[i+10] = gold
             time.sleep(.1)
             if cosmos[i] == 3:
                 if cp.switch: playstring("cck",.1)
                 hit = 1
                 cosmos[i] = 0
-        for i in ffire:
+        for i in rfire:
             cp.pixels[i]=blank
             strip[10+i]=blank
     else:
         for i in rfire:
             cp.pixels[i] = gold
-            strip[15+i]=gold
+            strip[10+i]=gold
             time.sleep(.1)
             if cosmos[i] == 3:
                 if cp.switch: playstring("cck",.1)
                 hit = 1
                 cosmos[i] = 0
         for i in rfire:
-
+            
             cp.pixels[i]=blank
-            strip.pixel.pixel.pixel[10+i]=blank
+            strip[10+i]=blank
     return hit
+    
+    
+def shownum(num,kolor):
+    nums = str(num)
+    
+    for i in range(len(nums)):
+        cp.pixels.fill(blank)
+        if eval(nums[i]) == 0 :
+            cp.pixels.fill(green)
+        else:
+            for n in range(eval(nums[i])):
+                cp.pixels[n] = kolor
+        time.sleep(.2)
+    time.sleep(2)
+    cp.pixels.fill(blank)
+    
+    
 
 def showsky():
     ouch = 0
     cp.pixels.fill(blank)
     for i in range(10):
         cp.pixels[i]= stars[cosmos[i]]
-        strip[i]=stars[cosmos[89+i]]
+        strip[i]=stars[cosmos[89+i]]    
     for i in range(20):
         strip[i+10] = stars[cosmos[i]]
-
-    #display x-wing
+        
+    #display starfighter 
     if dir == 1:
         cp.pixels[4] = green
         strip[14]=green
@@ -151,7 +154,8 @@ while True:
         cycle(2)
         cosmos = mkstars(100)
         dir = 1
-        blinknum(score,red)
+        shownum(score,blue)
+        oscore = score
         score = 0
 
         time.sleep(3)
@@ -169,6 +173,7 @@ while True:
         #reverse course
         dir = dir * -1
         print("reverse")
+        time.sleep(.1)
 
     if cp.touch_A3:
         #restart
@@ -185,3 +190,9 @@ while True:
         cycle(1)
         cosmos = mkstars(100)
         print("hyperspace")
+        
+    if cp.touch_A5:
+        #old score
+        print ("old score: " + str(oscore))
+        shownum(oscore,blue)
+        
