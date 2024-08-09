@@ -2,7 +2,7 @@
 
 * bach.py - provides musical tones
 * starfighter.py - 1D starfighter patrol game. Destroy asteroid threats.
-* starfighter.js - Makecode/Javascript version Makecode version: https://makecode.com/_RocF4AHbY19R
+* starfighter.js - Javascript version Makecode link: https://makecode.com/_RocF4AHbY19R
 
   A - fire laser
   B - reverse direction
