@@ -5,6 +5,8 @@ This is a one-dimensional starfighter game. Inspired by ["1D Pac-Man is the best
 Pressing B reverses direction, A fires your lasers. You need to clear the purple asteroids that are a hazard to hyperspace navigation. You can move to a new region by hitting A4. Or if you choose restart the game with A3. When you've been hit 5 times your score (number of asteroids cleared) will show before the game restarts.
 In the CircuitPython version you restart when you hit A or B. The Makecode/Javascript version will restart after a pause. 
 
+Bonus: You can see MORE pixels if you attach https://www.adafruit.com/product/3811 - the 60 pixel Adafruit neopixel strip using A1 as the control - then you'll get a wider one-dimensional display!
+
 ```
 Switch to the right to turn off sound.
 ```
