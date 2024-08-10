@@ -50,7 +50,7 @@ dir = 1
 global score
 score = 0
 cosmos = mkstars(100)
-if cp.switch: swtune(1)
+if cp.switch: compthink(2)
 def fire(dir):
     if cp.switch: playnote("k",.1)
     hit = 0
@@ -76,15 +76,15 @@ def fire(dir):
                 hit = 1
                 cosmos[i] = 0
         for i in rfire:
-            
+
             cp.pixels[i]=blank
             strip[10+i]=blank
     return hit
-    
-    
+
+
 def shownum(num,kolor):
     nums = str(num)
-    
+
     for i in range(len(nums)):
         cp.pixels.fill(blank)
         if eval(nums[i]) == 0 :
@@ -95,19 +95,19 @@ def shownum(num,kolor):
         time.sleep(.2)
     time.sleep(2)
     cp.pixels.fill(blank)
-    
-    
+
+
 
 def showsky():
     ouch = 0
     cp.pixels.fill(blank)
     for i in range(10):
         cp.pixels[i]= stars[cosmos[i]]
-        strip[i]=stars[cosmos[89+i]]    
+        strip[i]=stars[cosmos[89+i]]
     for i in range(20):
         strip[i+10] = stars[cosmos[i]]
-        
-    #display starfighter 
+
+    #display starfighter
     if dir == 1:
         cp.pixels[4] = green
         strip[14]=green
@@ -190,9 +190,9 @@ while True:
         cycle(1)
         cosmos = mkstars(100)
         print("hyperspace")
-        
-    if cp.touch_A5:
+
+    if cp.touch_A7:
         #old score
         print ("old score: " + str(oscore))
         shownum(oscore,blue)
-        
+
